@@ -63,6 +63,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* button { */
+  /*   @apply rounded-md px-2 py-1 border-current border-2 shadow-md; */
+  /* } */
 }
 
 /* overridear los estilos de los componentes base */

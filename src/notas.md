@@ -127,3 +127,34 @@ Lo chido de esto en react o vue o lo k sea es que puedes hacer un componente que
     <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">Max ($1500)</span>
 </div>
 ```
+
+## colores 
+
+bg-red-500/50 opacity good
+
+se puede hacer en una clase asi normal los estilos de los botones, y luego hacer otras clases que cambien el text-color para que cambie el color del boton simplmente agregando la clase
+
+utilities cuando quieres estilizar un componente que ya tiene una clase pero hacer cambios de forma especifica como necesitar 1 margen especial
+
+la component layer es para ya cosas mas generales
+
+pero igualmente no las estare usando !!!!
+
+kk
+
+## outline-none
+
+esto sirve para quitar el bordecito azul que tienen los oinput fields de manera nativa
+
+tamibien se pueden estilizar los placeholders
+
+```css
+placeholder-purple-500
+```
+
+los rings se pueden usar d manera sexy cuando se hace click sobre un input y que haga como un efecto de ilimunicacion en el input field
+
+```css
+ring-2 ring-red-500
+```
+
