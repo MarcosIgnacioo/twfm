@@ -152,9 +152,136 @@ tamibien se pueden estilizar los placeholders
 placeholder-purple-500
 ```
 
+## rings
+
 los rings se pueden usar d manera sexy cuando se hace click sobre un input y que haga como un efecto de ilimunicacion en el input field
 
 ```css
 ring-2 ring-red-500
 ```
 
+## accent
+
+```html 
+<input id="terms" type="checkbox" className="accent-black" />
+```
+
+## valid!!!
+
+esto sirve para estilizar cuanod un input es valido amigue
+RECUERDALO 
+
+## placehoder-shown
+
+aplicar estiles cuando el placeholder se esta mostrando como cambiar el bgc o la fuente yo k se
+
+# empty
+
+este se activa cuando un contenedor no tiene ningun nodo lo que resulta util para aplicar estilos a algo cuando esta cargando
+
+# invisible vs hidden
+
+hidden lo quita del layout mientras que invisible deja el espacio que ocuparia en el layout invisbiible pero pues sigue ocupando el espacio
+
+
+# peer
+
+peer sirve para que cuando un input cambia de estado (valid invalid focus hover) otros elementos hermanos del mismo puedan cambiar por ejemplo, se puede tener una checkbox que cuando se active se muestre un texto abajo que estaba hidden
+
+se le pone a la checkbox la clase peer
+
+al parrafo se le pone peer-checked:block
+
+y asi se muestra solamente cuando su peer este chequeado
+
+tambien se pe pueden poner nombres a los peers para que se tengan varios inputs que activen de diferentes maneras a otros elementos
+
+se les pone el nombre peer/nombre
+
+y a las cosas que queramos que reaccionen a esos peer lo que se les hace es peer-state/name:text-red-500
+
+peer-checked/popo:block
+
+esto mostraria el parrafo cuando el peer popo sea checkeado
+
+```html
+<div>
+          <label htmlFor="popo">popo</label>
+          <input type="radio" name="foo" className="peer/popo" />
+          <label htmlFor="pipi">pipi</label>
+          <input type="radio" name="foo" className="peer/pipi" />
+          <p className="hidden peer-checked/popo:block text-orangi-950 decoration-orangi-800 decoration-wavy decoration-4 line-through">
+            elegiste popo
+          </p>
+          <p className="hidden peer-checked/pipi:block text-orangi-50 bg-black">
+            elegiste pipi
+          </p>
+        </div>
+```
+
+peer sirve para modificar el state visual de distintas partes de la ui de manera sencilla puede ser muy customizado con los nombres de los peers gamers
+
+# group
+
+es basicamente lo mismo que peers pero es para actualizar los contenedores hijos cuando el padre tiene cierto state
+
+```html
+<ul role="list">
+  {#each people as person}
+    <li class="group/item hover:bg-slate-100 ...">
+      <img src="{person.imageUrl}" alt="" />
+      <div>
+        <a href="{person.url}">{person.name}</a>
+        <p>{person.title}</p>
+      </div>
+      <a class="group/edit invisible hover:bg-slate-200 group-hover/item:visible ..." href="tel:{person.phone}">
+        <span class="group-hover/edit:text-gray-700 ...">Call</span>
+        <svg class="group-hover/edit:translate-x-0.5 group-hover/edit:text-slate-500 ...">
+          <!-- ... -->
+        </svg>
+      </a>
+    </li>
+  {/each}
+</ul>
+```
+
+
+aqui por ejemplo se tiene el group item que es cada li, entonces, cuando el mouse se hoverea sobre este (hover en el contenedor padre) se muestra el item p
+
+group-hover/item    :visible
+
+
+y en esto hay otro grupo que es el propio anchor el cual es edit, que, cuando se hoveree sobre el anchor se va a cambiar el color de texto y se va a mover tantito a laderecha el icono
+
+cuando cambia de state el contenedor padre y quieres cambiar el state de los hijos
+
+
+groups ejemplo
+
+```html
+<div className="container w-2/4 mx-auto mt-4 space-y-4 p-4 border-orangi-300 border-2 rounded-md shadow-md text-orange-800 group/ad hover:bg-orangi-700 hover:text-orangi-50">
+      <h3 className="font-bold text-xl group-hover/ad:text-orange-50">Important Announcement</h3>
+      <p className="group-hover/ad:text-orange-50">Attention, esteemed user! In the swirling vortex of our digital realm, a click on "log out" now will seal your fate with the ancient curse of 'Eternal Banishment.' Yes, dare to exit and you shall become a digital ghost, wandering the shadowy halls of the Internet, forever longing for the warm embrace of the login screen. Beware, for not even the mightiest password reset can break this spell. So, choose wisely, stay awhile and linger in the land of the logged-in, lest you wish to be a legend, a whisper on the Wi-Fi winds. Log out now, and 'Access Denied' becomes your eternal echo!</p>
+      <button className="rounded  text-orangi-600 border-current border-2 py-1 px-2 shadow-md group-hover/ad:text-orange-50">I Understand</button>
+    </div>
+```
+
+En este caso tenemos un contenedor con un anuncio el caso es que queremos que cuando el contenedor es hovereado el fondo sea de color naranja pero nuestras letras son de color naranja por lo que para hacer que sean blancas y esten en contraste podemos usar los grupos es un ejemplo un poco ekis pero hace el trabajo es muy claro y me guta
+
+otra manera seria simplemente pasarle a todos los elementos desde el contenedor padre el color que queremos que tengan de fuente y ese usarlo para todo y luego cuando hoveremos a la clase padre pues lo que hacemos es cambiar esa fuente por una blanca y ya no hay necesidad d usar grupos pero nioedpp
+
+```html
+<div className="container w-2/4 mx-auto mt-4 space-y-4 p-4 border-orangi-300 border-2 rounded-md shadow-md text-orange-800 group/ad hover:bg-orangi-700 hover:text-orangi-50 hover:border-orangi-700">k
+      <h3 className="font-bold text-xl ">Important Announcement</h3>
+      <p className="">Attention, esteemed user! In the swirling vortex of our digital realm, a click on "log out" now will seal your fate with the ancient curse of 'Eternal Banishment.' Yes, dare to exit and you shall become a digital ghost, wandering the shadowy halls of the Internet, forever longing for the warm embrace of the login screen. Beware, for not even the mightiest password reset can break this spell. So, choose wisely, stay awhile and linger in the land of the logged-in, lest you wish to be a legend, a whisper on the Wi-Fi winds. Log out now, and 'Access Denied' becomes your eternal echo!</p>
+      <button className="rounded  border-current border-2 py-1 px-2 shadow-md ">I Understand</button>
+    </div>
+```
+
+```html
+<div className="container w-2/4 mx-auto mt-4 space-y-4 p-4 border-orangi-300 border-2 rounded-md shadow-md text-orange-800 group/ad hover:bg-orangi-700">
+      <h3 className="font-bold text-xl group-hover/ad:text-orange-50">Important Announcement</h3>
+      <p className="group-hover/ad:text-orange-50">Attention, esteemed user! In the swirling vortex of our digital realm, a click on "log out" now will seal your fate with the ancient curse of 'Eternal Banishment.' Yes, dare to exit and you shall become a digital ghost, wandering the shadowy halls of the Internet, forever longing for the warm embrace of the login screen. Beware, for not even the mightiest password reset can break this spell. So, choose wisely, stay awhile and linger in the land of the logged-in, lest you wish to be a legend, a whisper on the Wi-Fi winds. Log out now, and 'Access Denied' becomes your eternal echo!</p>
+      <button className="rounded  border-current border-2 py-1 px-2 shadow-md group-hover/ad:text-orange-50">I Understand</button>
+    </div>
+```
